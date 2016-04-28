@@ -20,3 +20,7 @@ Potential resources:
 Auth:
 https://scotch.io/tutorials/easy-node-authentication-facebook
 http://code.tutsplus.com/articles/social-authentication-for-nodejs-apps-with-passport--cms-21618
+
+Timed Emails:
+http://patrickdmccarthy.tumblr.com/post/104974896772/how-to-send-timed-emails-with-templates-from
+

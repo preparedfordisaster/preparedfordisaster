@@ -14,3 +14,9 @@ Stretch goals(not in order):
 -Have links to Amazon packages for preparedness kits (Amazon Associates, https://affiliate-program.amazon.com/)
 -more frequent reminder to the user for a missing piece of the preparedness kit
 -Enable Google, Facebook, Twitter login
+
+
+Potential resources:
+Auth:
+https://scotch.io/tutorials/easy-node-authentication-facebook
+http://code.tutsplus.com/articles/social-authentication-for-nodejs-apps-with-passport--cms-21618

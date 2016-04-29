@@ -7,6 +7,7 @@
 + Save info to the database.
 + RESTful routes that require the user to be logged in.
 + Email the user, back at user-defined interval.
++ Up on Heroku
 
 ##Stretch goals(not in order):
 + Have email reminder go out to household members and the emergency contact as well

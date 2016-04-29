@@ -1,0 +1,24 @@
+{
+  "name": "preparedfordisaster",
+  "version": "1.0.0",
+  "description": "401d7 Project week 1 project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preparedfordisaster/preparedfordisaster.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/preparedfordisaster/preparedfordisaster/issues"
+  },
+  "homepage": "https://github.com/preparedfordisaster/preparedfordisaster#readme"
+}

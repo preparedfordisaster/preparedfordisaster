@@ -1,0 +1,23 @@
+{
+  "name": "preparedfordisaster",
+  "version": "1.0.0",
+  "description": "401d7 Project week 1 project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preparedfordisaster/preparedfordisaster.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/preparedfordisaster/preparedfordisaster/issues"
+  },
+  "homepage": "https://github.com/preparedfordisaster/preparedfordisaster#readme"
+}

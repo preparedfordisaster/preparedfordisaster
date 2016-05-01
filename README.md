@@ -15,6 +15,7 @@
 + Have links to Amazon packages for preparedness kits (Amazon Associates, https://affiliate-program.amazon.com/)
 + more frequent reminder to the user for a missing piece of the preparedness kit
 + Enable Google, Facebook, Twitter login
++ Implement an argon2 authentication protocol instead of bcrypt https://www.npmjs.com/package/argon2 (2 generations newer than bcrypt)
 
 
 Potential resources:

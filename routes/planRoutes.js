@@ -8,7 +8,7 @@ var planRouter = module.exports = new Router();
 
 
 planRouter.get('/plan', jwtAuth, (req, res) => {
-  Plan.find({}, (err, data) => {
+  Plan.find({ memberID: req.user._id }, (err, data) => {
     if (err) return errorHandler(err, res);
     res.status(200).json(data);
   });
@@ -16,6 +16,7 @@ planRouter.get('/plan', jwtAuth, (req, res) => {
 
 planRouter.post('/plan', jwtAuth, bodyParser, (req, res) => {
   var newPlan = new Plan(req.body);
+  newPlan.memberID = req.user._id;
   newPlan.save((err, data) => {
     if (err) return errorHandler(err, res);
     res.status(200).json(data);
@@ -27,7 +28,7 @@ planRouter.put('/plan/:id', jwtAuth, bodyParser, (req, res) => {
   delete planData._id;
   Plan.update({ _id: req.params.id }, planData, (err) => {
     if (err) return errorHandler(err, res);
-    res.status(200).json({ msg: 'Updated the plan entry with put' });
+    res.status(200).json({ msg: 'Plan has been updated!' });
   });
 });
 

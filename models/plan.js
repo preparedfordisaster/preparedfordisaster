@@ -5,6 +5,7 @@ var householdMemberSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
+  memberID: String,
   primaryPhone: String,
   secondaryPhone: String,
   height: String,

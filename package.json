@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/preparedfordisaster/preparedfordisaster#readme",
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    "bcrypt": "latest",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "dotenv": "^2.0.0",

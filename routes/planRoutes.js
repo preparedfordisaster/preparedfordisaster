@@ -8,7 +8,7 @@ var planRouter = module.exports = new Router();
 
 planRouter.get('/plan', (req, res) => {
   Plan.find({}, (err, data) => {
-    if (err) errorHandler(err, res);
+    if (err) return errorHandler(err, res);
     res.status(200).json(data);
   });
 });

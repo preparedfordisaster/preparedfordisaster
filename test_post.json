@@ -24,7 +24,7 @@
     "city": "moose",
     "state": "moose",
     "zip": 1234,
-    "birthYear": "moose"
+    "birthYear": 1234
   },
   {
     "relationship": "sister",
@@ -45,7 +45,7 @@
     "streetAddressPt2": "moose",
     "city": "moose",
     "state": "moose",
-    "zip": 1234,
+    "zip": 1234
   }],
   "rallyPoints": {
     "immediate": "moose",
@@ -53,9 +53,9 @@
     "rallyStreetAddressPt2": "moose",
     "rallyCity": "moose",
     "rallyState": "moose",
-    "rallyZip": 1234,
+    "rallyZip": 1234
   },
-  "emergency kit": {
+  "emergencykit": {
     "water": true,
     "food": true,
     "noaaWeatherRadio": true,

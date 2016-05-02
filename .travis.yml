@@ -2,5 +2,12 @@ language: node_js
 node_js:
   - "4"
 script: "npm test"
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
 env:
   - TRAVIS=travis CXX=g++-4.8

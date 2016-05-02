@@ -66,7 +66,7 @@ var planSchema = new mongoose.Schema({
       sheetingAndDuctTape: { type: Boolean, required: true },
       moistTowelettes: { type: Boolean, required: true },
       garbagebagsAndPlasticTies: { type: Boolean, required: true },
-      wrenchorPliers: { type: Boolean, required: true },
+      wrenchOrPliers: { type: Boolean, required: true },
       canOpener: { type: Boolean, required: true },
       localMaps: { type: Boolean, required: true }
     }

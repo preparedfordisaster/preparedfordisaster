@@ -11,3 +11,11 @@ planRouter.get('/plan', (req, res) => {
     res.status(200).json(data);
   });
 });
+
+planRouter.post('/plan', bodyParser, (req, res) => {
+  var newPlan = new Plan(req.body);
+  newPlan.save((err, data) => {
+    if (err) console.log(err);
+    res.status(200).json(data);
+  });
+});

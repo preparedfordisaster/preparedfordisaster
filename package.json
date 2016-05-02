@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/preparedfordisaster/preparedfordisaster#readme",
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    "bcrypt": "latest",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "dotenv": "^2.0.0",
@@ -32,6 +32,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
     "mocha": "^2.4.5"
   }
 }

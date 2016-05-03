@@ -44,7 +44,7 @@ var planSchema = new mongoose.Schema({
     city: String,
     state: String,
     zip: Number,
-    reminderDate: Number,
+    reminderDate: { type: Date, default: Date() },
     reminderFrequency: { type: Number, default: 91 },
     householdMembers: [householdMemberSchema],
     ice: [iceSchema],

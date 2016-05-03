@@ -2,7 +2,7 @@ const email = require(__dirname + '/lib/chron_email.js');
 const Plan = require(__dirname + '/models/plan.js');
 const errorHandler = require(__dirname + '/lib/errorHandler.js');
 
-var now = new Date().getTime();
+var now = new Date();
 Plan.find( { reminderDate: { $lt: now } }, (err, planData) => {
   if (err) return errorHandler(err);
     const mailConfig = {

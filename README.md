@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/preparedfordisaster/preparedfordisaster.svg?branch=master)](https://travis-ci.org/preparedfordisaster/preparedfordisaster)
 
-##MVP:
+## MVP:
 + Users can create a login (Auth)
 + Users can login securely after created.
 + Save info to the database.
@@ -11,7 +11,7 @@
 + Email the user, back at user-defined interval.
 + Up on Heroku
 
-##Stretch goals(not in order):
+## Stretch goals(not in order):
 + Have email reminder go out to household members and the emergency contact as well
 + Set calendar reminder
 + Have links to Amazon packages for preparedness kits (Amazon Associates, https://affiliate-program.amazon.com/)
@@ -28,3 +28,19 @@ http://code.tutsplus.com/articles/social-authentication-for-nodejs-apps-with-pas
 Timed Emails:
 http://patrickdmccarthy.tumblr.com/post/104974896772/how-to-send-timed-emails-with-templates-from
 
+# Documents
+## Dependencies
+  * bcrypt
+  * body-parser
+  * express
+  * dotenv
+  * jsonwebtoken
+  * mongoose
+
+## devDependencies
+  * chai
+  * chai-http
+  * gulp
+  * gulp-eslint
+  * gulp-mocha
+  * mocha

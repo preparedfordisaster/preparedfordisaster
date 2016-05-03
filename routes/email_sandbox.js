@@ -8,7 +8,6 @@ const emailRouter = module.exports = exports = new Router();
 
 
 emailRouter.post('/email', jwtAuth, (req, res) => {
-  console.log('res', res);
   Plan.findOne({ memberID: req.user._id }, (err, planData) => {
     if (err) return errorHandler(err);
     var now = new Date();

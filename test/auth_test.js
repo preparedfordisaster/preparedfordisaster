@@ -17,18 +17,6 @@ describe('authentication works', () => {
     server.listen(port, 'mongodb://localhost/plan_test_db', done);
   });
 
-  before((done) => {
-    var user = new User({ username: 'Test1', password: 'Test1' });
-    user.generateToken((err, token) => {
-      if (err) throw err;
-      this.token = token;
-      user.save((err, data) => {
-        if (err) throw err;
-        done();
-      });
-    });
-  });
-
   after((done) => {
     mongoose.connection.db.dropDatabase(() => {
       mongoose.disconnect(done);

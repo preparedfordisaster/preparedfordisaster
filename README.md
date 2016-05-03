@@ -28,6 +28,9 @@ http://code.tutsplus.com/articles/social-authentication-for-nodejs-apps-with-pas
 Timed Emails:
 http://patrickdmccarthy.tumblr.com/post/104974896772/how-to-send-timed-emails-with-templates-from
 
+Mailgun API:
+http://stackoverflow.com/questions/26956251/sending-emails-using-mailgun-with-nodemailer-package
+
 # Documents
 ## Dependencies
   * bcrypt

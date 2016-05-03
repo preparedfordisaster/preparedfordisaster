@@ -10,5 +10,5 @@ node_modules
 # Db files
 db/*
 
-# env file
+#env variables
 .env

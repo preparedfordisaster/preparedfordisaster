@@ -12,7 +12,7 @@ emailRouter.post('/email', jwtAuth, (req, res) => {
     if (err) return errorHandler(err);
     var now = new Date();
     const mailConfig = {
-      from: 'info.preparedfordisaster@gmail.com',
+      from: 'info@preparedfordisaster.org',
       to: 'greg.magdsick@gmail.com',
       subject: 'Your Emergency Disaster Plan as of: ' + now,
       text: '',
@@ -22,5 +22,6 @@ emailRouter.post('/email', jwtAuth, (req, res) => {
       if (err) return console.log(err);
       console.log('Message sent: ' + info.response);
     });
+    res.json({ msg: 'Email sent successfully' });
   });
 });

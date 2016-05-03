@@ -9,3 +9,6 @@ node_modules
 
 # Db files
 db/*
+
+#env variables
+.env

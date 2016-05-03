@@ -41,19 +41,81 @@ describe('plan routes server', () => {
     .post('/api/plan')
     .set('token', this.token)
     .send({ firstName: 'test', lastName: 'test', email: 'test',
-      'emergencykit.water': true, 'emergencykit.food': true, 'emergencykit.noaaWeatherRadio': true,
-      'emergencykit.flashlight': true, 'emergencykit.extraBatteries': true, 'emergencykit.firstAidKit': true,
-      'emergencykit.whistle': true, 'emergencykit.dustMask': true, 'emergencykit.sheetingAndDuctTape': true,
-      'emergencykit.moistTowelettes': true,
-      'emergencykit.garbageBagsAndPlasticTies': true, 'emergencykit.wrenchOrPliers': true, 'emergencykit.canOpener': true, 'emergencykit.localMaps': true })
+    'emergencykit.water': true, 'emergencykit.food': true, 'emergencykit.noaaWeatherRadio': true,
+    'emergencykit.flashlight': true, 'emergencykit.extraBatteries': true,
+    'emergencykit.firstAidKit': true,
+    'emergencykit.whistle': true, 'emergencykit.dustMask': true,
+    'emergencykit.sheetingAndDuctTape': true,
+    'emergencykit.moistTowelettes': true,
+    'emergencykit.garbageBagsAndPlasticTies': true, 'emergencykit.wrenchOrPliers': true,
+    'emergencykit.canOpener': true, 'emergencykit.localMaps': true })
     .end((err, res) => {
-      console.log(err);
-      console.log(res.body);
       expect(err).to.eql(null);
       expect(res.body.firstName).to.eql('test');
       done();
     });
   });
 
+  it('should receive stored plans from database', (done) => {
+    request('localhost:' + port)
+    .get('/api/plan')
+    .set('token', this.token)
+    .end((err, res) => {
+      expect(err).to.eql(null);
+      expect(Array.isArray(res.body)).to.eql(true);
+      done();
+    });
+  });
+  describe('how to update or remove plan from database', () => {
+    beforeEach((done) => {
+      var newPlan = new Plan({
+        firstName: 'test', lastName: 'test', email: 'test',
+        'emergencykit.water': true, 'emergencykit.food': true,
+        'emergencykit.noaaWeatherRadio': true,
+        'emergencykit.flashlight': true, 'emergencykit.extraBatteries': true,
+        'emergencykit.firstAidKit': true,
+        'emergencykit.whistle': true, 'emergencykit.dustMask': true,
+        'emergencykit.sheetingAndDuctTape': true,
+        'emergencykit.moistTowelettes': true,
+        'emergencykit.garbageBagsAndPlasticTies': true, 'emergencykit.wrenchOrPliers': true,
+        'emergencykit.canOpener': true, 'emergencykit.localMaps': true }
+      );
+      newPlan.save((err, data) => {
+        if (err) throw err;
+        this.plan = data;
+        done();
+      });
+    });
 
+    it('should update existing plan', (done) => {
+      request('localhost:' + port)
+      .put('/api/plan/' + this.plan._id)
+      .set('token', this.token)
+      .send({ firstName: 'test123', lastName: 'test123', email: 'newTest',
+      'emergencykit.water': true, 'emergencykit.food': true, 'emergencykit.noaaWeatherRadio': true,
+      'emergencykit.flashlight': true, 'emergencykit.extraBatteries': true,
+      'emergencykit.firstAidKit': true,
+      'emergencykit.whistle': true, 'emergencykit.dustMask': true,
+      'emergencykit.sheetingAndDuctTape': true,
+      'emergencykit.moistTowelettes': true,
+      'emergencykit.garbageBagsAndPlasticTies': true, 'emergencykit.wrenchOrPliers': true,
+      'emergencykit.canOpener': true, 'emergencykit.localMaps': true })
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Plan has been updated!');
+        done();
+      });
+    });
+
+    it('should remove plan data from database', (done) => {
+      request('localhost:' + port)
+      .delete('/api/plan/' + this.plan._id)
+      .set('token', this.token)
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Deleted a plan entry');
+        done();
+      });
+    });
+  });
 });

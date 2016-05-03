@@ -1,13 +1,15 @@
 const Router = require('express').Router;
 const errorHandler = require(__dirname + '/../lib/errorHandler');
+const jwtAuth = require(__dirname + '/../lib/jwt_auth');
 const Plan = require(__dirname + '/../models/plan');
 const email = require(__dirname + '/../lib/chron_email.js');
 
 const emailRouter = module.exports = exports = new Router();
 
 
-emailRouter.post('/email', () => {
-  Plan.findOne({ memberID: '5728e4b1443b8efd555629ea' }, (err, planData) => {
+emailRouter.post('/email', jwtAuth, (req, res) => {
+  console.log('res', res);
+  Plan.findOne({ memberID: req.user._id }, (err, planData) => {
     if (err) return errorHandler(err);
     var now = new Date();
     const mailConfig = {

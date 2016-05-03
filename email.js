@@ -3,7 +3,8 @@ const Plan = require(__dirname + '/models/plan.js');
 const errorHandler = require(__dirname + '/lib/errorHandler.js');
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', function (err, done) => {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err, done) => {
+  if (err) return errorHandler(err);
   var now = new Date();
   console.log('now ' + now);
   Plan.find( { reminderFrequency: { $lt: 99 } }, (err, planData) => {

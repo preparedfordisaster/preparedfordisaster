@@ -7,12 +7,12 @@ const email = require(__dirname + '/../lib/chron_email.js');
 const emailRouter = module.exports = exports = new Router();
 
 
-emailRouter.post('/email', jwtAuth, (req, res) => {
+emailRouter.post('/email', jwtAuth, (req) => {
   Plan.findOne({ memberID: req.user._id }, (err, planData) => {
     if (err) return errorHandler(err);
     var now = new Date();
     const mailConfig = {
-      from: 'info.preparedfordisaster@gmail.com',
+      from: 'info@preparedfordisaster.com',
       to: 'greg.magdsick@gmail.com',
       subject: 'Your Emergency Disaster Plan as of: ' + now,
       text: '',

@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
     if (err) return errorHandler(err);
     const mailConfig = {
       from: 'info@preparedfordisaster.org',
-      to: 'greg.magdsick@gmail.com',
+      to: 'katherine.beame@gmail.com',
       subject: 'Your Emergency Disaster Plan as of: ' + now,
       text: '',
       html: JSON.stringify(planData)

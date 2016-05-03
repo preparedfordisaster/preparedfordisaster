@@ -44,6 +44,8 @@ var planSchema = new mongoose.Schema({
     city: String,
     state: String,
     zip: Number,
+    reminderDate: Number,
+    reminderFrequency: { type: Number, default: 91 },
     householdMembers: [householdMemberSchema],
     ice: [iceSchema],
     rallyPoints: {
@@ -69,7 +71,8 @@ var planSchema = new mongoose.Schema({
       garbageBagsAndPlasticTies: { type: Boolean, required: true },
       wrenchOrPliers: { type: Boolean, required: true },
       canOpener: { type: Boolean, required: true },
-      localMaps: { type: Boolean, required: true }
+      localMaps: { type: Boolean, required: true },
+      kitReminderDate: Number
     }
   });
 

@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db');
 
 var now = new Date();
 console.log('now ' + now);
-Plan.find( { reminderDate: { $lt: now } }, (err, planData) => {
+Plan.find( { reminderFrequency: { $lt: 99 } }, (err, planData) => {
   console.log('plandata ' + planData);
   if (err) return errorHandler(err);
     const mailConfig = {

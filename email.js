@@ -4,6 +4,7 @@ const errorHandler = require(__dirname + '/lib/errorHandler.js');
 
 var now = new Date();
 Plan.find( { reminderDate: { $lt: now } }, (err, planData) => {
+  console.log(planData);
   if (err) return errorHandler(err);
     const mailConfig = {
       from: 'info@preparedfordisaster.org',

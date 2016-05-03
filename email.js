@@ -1,6 +1,9 @@
 const email = require(__dirname + '/lib/chron_email.js');
 const Plan = require(__dirname + '/models/plan.js');
 const errorHandler = require(__dirname + '/lib/errorHandler.js');
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db');
 
 var now = new Date();
 console.log('now ' + now);

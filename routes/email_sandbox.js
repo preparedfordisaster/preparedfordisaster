@@ -7,7 +7,7 @@ const email = require(__dirname + '/../lib/chron_email.js');
 const emailRouter = module.exports = exports = new Router();
 
 
-emailRouter.post('/email', jwtAuth, (req) => {
+emailRouter.post('/email', jwtAuth, (req, res) => {
   Plan.findOne({ memberID: req.user._id }, (err, planData) => {
     if (err) return errorHandler(err);
     var now = new Date();
@@ -22,5 +22,6 @@ emailRouter.post('/email', jwtAuth, (req) => {
       if (err) return console.log(err);
       console.log('Message sent: ' + info.response);
     });
+    res.json({ msg: 'Email sent successfully' });
   });
 });

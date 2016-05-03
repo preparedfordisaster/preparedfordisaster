@@ -12,7 +12,7 @@ emailRouter.post('/email', jwtAuth, (req) => {
     if (err) return errorHandler(err);
     var now = new Date();
     const mailConfig = {
-      from: 'info@preparedfordisaster.com',
+      from: 'info@preparedfordisaster.org',
       to: 'greg.magdsick@gmail.com',
       subject: 'Your Emergency Disaster Plan as of: ' + now,
       text: '',

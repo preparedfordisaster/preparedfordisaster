@@ -7,20 +7,21 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
   if (err) return errorHandler(err);
   var now = new Date();
   console.log('now ' + now);
-  Plan.find( { 'reminderFrequency': { $lt: 99 } }, (err, planData) => {
-    console.log('plandata ' + JSON.stringify(planData));
-    if (err) return errorHandler(err);
-    const mailConfig = {
-      from: 'info@preparedfordisaster.org',
-      to: 'katherine.beame@gmail.com',
-      subject: 'Your Emergency Disaster Plan as of: ' + now,
-      text: '',
-      html: JSON.stringify(planData)
-    };
-    email.sendMail(mailConfig, (err, info) => {
-      if (err) return console.log(err);
-      console.log('Message sent: ' + info.response);
-      mongoose.disconnect(done);
+  Plan.find( { 'reminderDate': { $lt: now } }, (err, remindArray) => {
+    remindArray.forEach((value) => {
+      if (err) return errorHandler(err);
+      const mailConfig = {
+        from: 'info@preparedfordisaster.org',
+        to: value.email,
+        subject: 'Your Emergency Disaster Plan as of: ' + now,
+        text: '',
+        html: JSON.stringify(value)
+      };
+      email.sendMail(mailConfig, (err, info) => {
+        if (err) return console.log(err);
+        console.log('Message sent: ' + info.response);
+      });
     });
   });
+  mongoose.disconnect(done);
 });

@@ -22,7 +22,7 @@ emailRouter.post('/email', jwtAuth, (req, res) => {
       var now = new Date();
       const mailConfig = {
         from: 'info.preparedfordisaster@gmail.com',
-        to: 'phillip.d.nguyen23@gmail.com',
+        to: 'greg.magdsick@gmail.com',
         subject: '[TEST]Your Emergency Disaster Plan as of: ' + now,
         html: body
       };

@@ -27,6 +27,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
         console.log('Message sent: ' + info.response);
       });
     });
+    mongoose.disconnect(done);
   });
-  mongoose.disconnect(done);
 });

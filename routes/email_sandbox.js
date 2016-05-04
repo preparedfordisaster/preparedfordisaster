@@ -31,7 +31,6 @@ emailRouter.post('/email', jwtAuth, (req, res) => {
         console.log('Message sent: ' + info.response);
       });
     });
-    res.json({ msg: 'Email sent successfully' });
   });
   res.status(200).json({ msg: 'Successfully sent!' });
 });

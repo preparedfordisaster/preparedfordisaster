@@ -1,11 +1,71 @@
-<h1>Prepared For Disaster Confirmation Plan</h1>
-<h3>Dear {{firstName}},</h3>
+Dear {{firstName}},
 <p>
   Thank you for creating a disaster plan that will help mitigate unexpected disaster occurences.
   Having a plan will safeguard you (and your loved ones) to ensure that whenever trouble arises, you and your family
   will take the necessary steps on rebuilding or surviving. Below is your customized disaster plan.
 </p>
 
-<b>First Name</b>{{firstName}}
-<b>Last Name</b>{{lastName}}
-<b>Email</b>{{email}}
+<h2 style="text-decoration: underline;">Your Disaster Plan Details:</h2>
+<b>Name: </b>{{firstName}} {{lastName}}<br>
+<b>Email: </b>{{email}}<br>
+<b>Primary Phone: </b>{{primaryPhone}}<br>
+<b>Secondary Phone: </b>{{secondaryPhone}}<br>
+<b>Home Address: </b><br>
+{{streetAddress}}<br>
+{{streetAddressPt2}}<br>
+{{city}}, {{state}} {zip}<br>
+
+
+<h3 style="text-decoration: underline;"><b>Your Rally Points</b></h3>
+<b>Immediately Outside of House</b>(in case of fire, etc.):<br>
+{{rallyPoints.immediate}}<br>
+
+<b>Out of Neighborhood Rally Point</b>(in case of major disaster):<br>
+{{rallyPoints.rallyStreetAddress}}<br>
+{{rallyPoints.rallyStreetAddressPt2}}<br>
+{{rallyPoints.rallyCity}}, {{rallyPoints.rallyState}} {{rallyPoints.rallyZip}}<br>
+
+
+<h3 style="text-decoration: underline;"><b>Out of State Emergency Contact</b><span> (aka ICE)</span>
+  {{ice.firstName}} {{ice.lastName}}<br>
+  {{ice.streetAddress}}<br>
+  {{ice.streetAddressPt2}}<br>
+  {{ice.city}} {{ice.state}} {{ice.zip}}<br>
+
+  <h3 style="text-decoration: underline;"><b>Emergency Kit</b></h3>
+  Location of your kit: {{emergencykit.location}}<br>
+  These are the items you should have in your kit and if you have them or not:<br>
+  Water <span><b>(3 gallons per person)</b></span>: {{emergencykit.water}}<br>
+  Food <span><b>(3 days of non-perishable food)</b></span>: {{emergencykit.food}}<br>
+  NOAA weather Radio: {{emergencykit.noaaWeatherRadio}}<br>
+  Flashlight: {{emergencykit.flashlight}}<br>
+  Extra Batteries: {{emergencykit.extraBatteries}}<br>
+  First Aid Kit: {{emergencykit.firstAidKit}}<br>
+  Whistle: {{emergencykit.whistle}}<br>
+  Dust Masks <span><b>(one per person)</b></span>: {{emergencykit.dustMask}}<br>
+  Plastic Sheeting and Duct Tape <span><b>(for sealing a room off)</b></span>: {{emergencykit.sheetingAndDuctTape}}<br>
+  Moist Towelettes <span><b>(for personal hygene)</b></span>: {{emergencykit.moistTowelettes}}<br>
+  Garbage Bags and Plastic Ties: {{emergencykit.garbageBagsAndPlasticTies}}<br>
+  Wrench or Pliers: {{emergencykit.wrenchOrPliers}}<br>
+  Manual Can Opener: {{emergencykit.canOpener}}<br>
+  Local Maps: {{emergencykit.localMaps}}<br>
+
+
+  <h3 style="text-decoration: underline;"><b>Household Members:</b></h3>
+  {{#each householdMembers}}
+  <b>Name: </b>{{this.firstName}} {{this.lastName}}<br>
+  <b>Relationship: </b>{{this.relationship}}<br>
+  <b>Email: </b>{{this.email}}<br>
+  <b>Primary Phone: </b>{{this.primaryPhone}}<br>
+  <b>Secondary Phone: </b>{{this.secondaryPhone}}<br>
+  <b>Height: </b>{{this.height}} <b>Weight: </b>{{this.weight}}<br>
+  <b>Birth Year: </b>{{this.birthYear}}<br>
+  <b>Current Picture</b> {{picture}}<br>
+
+  <b>Work/School Details:</b><br>
+  {{this.workSchoolName}}<br>
+  {{this.streetAddress}}<br>
+  {{this.streetAddressPt2}}<br>
+  {{this.city}}, {{this.state}} {{this.zip}}<br>
+  <br>
+  {{/each}}

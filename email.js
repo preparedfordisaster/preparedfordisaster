@@ -10,6 +10,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
   Plan.find( { 'reminderDate': { $lt: now } }, (err, remindArray) => {
     remindArray.forEach((value) => {
       if (err) return errorHandler(err);
+      console.log(value.email);
       const mailConfig = {
         from: 'info@preparedfordisaster.org',
         to: value.email,

@@ -39,6 +39,7 @@ http://stackoverflow.com/questions/26956251/sending-emails-using-mailgun-with-no
   * dotenv
   * jsonwebtoken
   * mongoose
+  * handlebars 
 
 ## devDependencies
   * chai

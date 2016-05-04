@@ -31,15 +31,23 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
         debugger;
         value.reminderDate.setDate(value.reminderDate.getDate() + value.reminderFrequency);
         debugger;
-        Plan.save({ _id: value._id }, value, (err) => {
+        Plan.update({ _id: value._id }, value, (err) => {
           debugger;
           if (err) return console.log(err);
           console.log('updated successfully');
         });
       });
-      newEmitter.emit('cleanup', done);
-      debugger;
-      mongoose.disconnect(done);
+      var timerCounter = 0;
+      var timer = setInterval(() => {
+          Plan.find( { 'reminderDate': { $lt: now } }, (err, checkArray) => {
+            if (err) console.log(err);
+            timerCounter++;
+            if ( checkArray.length === 0 || timerCounter === 30) {
+              mongoose.disconnect(done);
+            clearInterval(timer);
+            }
+          });
+      }, 1000);
     });
   });
   });

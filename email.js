@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
     if (err) return errorHandler(err);
     var body;
     var template;
-      readFile(__dirname + '/../view/email_template.html').then((buffer) => {
+      readFile(__dirname + '/view/email_template.html').then((buffer) => {
         template = handlebars.compile(buffer.toString());
         remindArray.forEach((value) => {
         body = template(value);

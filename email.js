@@ -1,8 +1,15 @@
-const email = require(__dirname + '/chron_email.js');
-const Plan = require(__dirname + '/../models/plan.js');
+// const email = require(__dirname + '/chron_email.js');
+// const Plan = require(__dirname + '/../models/plan.js');
+// const handlebars = require('handlebars');
+// const readFile = require('fs-readfile-promise');
+// const errorHandler = require(__dirname + '/errorHandler.js');
+// const mongoose = require('mongoose');
+
+const email = require(__dirname + '/lib/chron_email.js');
+const Plan = require(__dirname + '/models/plan.js');
 const handlebars = require('handlebars');
 const readFile = require('fs-readfile-promise');
-const errorHandler = require(__dirname + '/errorHandler.js');
+const errorHandler = require(__dirname + '/lib/errorHandler.js');
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err, done) => {

@@ -5,48 +5,67 @@
   will take the necessary steps on rebuilding or surviving. Below is your customized disaster plan.
 </p>
 
-<h3>Your Disaster Plan Details:</h3>
-<b>Name: </b>{{firstName}} {{lastName}}
-<b>Email: </b>{{email}}
-<b>Primary Phone: </b>{{primaryPhone}}
-<b>Secondary Phone: </b>{{secondaryPhone}}
-<b>Home Address: </b>
-{{streetAddress}}
-{{streetAddressPt2}}
-{{city}}, {{state}} {zip}
+<h2>Your Disaster Plan Details:</h2>
+<b>Name: </b>{{firstName}} {{lastName}}<br>
+<b>Email: </b>{{email}}<br>
+<b>Primary Phone: </b>{{primaryPhone}}<br>
+<b>Secondary Phone: </b>{{secondaryPhone}}<br>
+<b>Home Address: </b><br>
+{{streetAddress}}<br>
+{{streetAddressPt2}}<br>
+{{city}}, {{state}} {zip}<br>
 
 
-<h5><b>Household Members:</b></h5>
+<h3><b>Your Rally Points</b></h3>
+<b>Immidieately outsid of house</b>(in case of fire, etc.):<br>
+{{rallyPoints.immediate}}<br>
+
+<b>Out of neighborhood rally point</b>(in case of major disaster):<br>
+{{rallyPoints.rallyStreetAddress}}<br>
+{{rallyPoints.rallyStreetAddressPt2}}<br>
+{{rallyPoints.rallyCity}}, {{rallyPoints.rallyState}} {{rallyPoints.rallyZip}}<br>
+
+
+<h3><b>Out of state emergency contact</b></h3>(aka ICE)<br>
+{{ice.firstName}} {{ice.lastName}}<br>
+{{ice.streetAddress}}<br>
+{{ice.streetAddressPt2}}<br>
+{{ice.city}}, {{ice.state}} {{ice.zip}}<br>
+
+<h3><b>Emergency Kit</b></h3>
+Location of your kit: {{emergencykit.location}}<br>
+These are the items you should have in your kit and if you have them or not:<br>
+Water<h6>(3 gallons per person)</h6>: {{emergencykit.water}}<br>
+Food<h6>(3 days of non-perishable food)</h6>: {{emergencykit.food}}<br>
+NOAA weather Radio: {{emergencykit.noaaWeatherRadio}}<br>
+Flashlight: {{emergencykit.flashlight}}<br>
+Extra Batteries: {{emergencykit.extraBatteries}}<br>
+First Aid Kit: {{emergencykit.firstAidKit}}<br>
+Whistle: {{emergencykit.whistle}}<br>
+Dust Masks<h6>(one per person)</h6>: {{emergencykit.dustMask}}<br>
+Plastic Sheeting and Duct Tape<h6>(for sealing a room off)</h6>: {{emergencykit.sheetingAndDuctTape}}<br>
+Moist Towelettes<h6>(for personal hygene)</h6>: {{emergencykit.moistTowelettes}}<br>
+Garbage Bags and Plastic Ties: {{emergencykit.garbageBagsAndPlasticTies}}<br>
+Wrench or Pliers: {{emergencykit.wrenchOrPliers}}<br>
+Manual Can Opener: {{emergencykit.canOpener}}<br>
+Local Maps: {{emergencykit.localMaps}}<br>
+
+
+<h3><b>Household Members:</b></h3>
 {{#each householdMembers}}
-<b>{{this.firstName}} {{this.lastName}}</b>
-<b>relationship: </b>{{this.relationship}}
-<b>email: </b>{{this.email}}
-<b>Primary Phone: </b>{{this.primaryPhone}}
-<b>Secondary Phone: </b>{{this.secondaryPhone}}
-<b>Height: </b>{{this.height}} <b>Weight: </b>{{this.weight}}
-<b>Birth Year: </b>{{this.birthYear}}
-<b>Current Picture</b> {{picture}}
+<b>{{this.firstName}} {{this.lastName}}</b><br>
+<b>relationship: </b>{{this.relationship}}<br>
+<b>email: </b>{{this.email}}<br>
+<b>Primary Phone: </b>{{this.primaryPhone}}<br>
+<b>Secondary Phone: </b>{{this.secondaryPhone}}<br>
+<b>Height: </b>{{this.height}} <b>Weight: </b>{{this.weight}}<br>
+<b>Birth Year: </b>{{this.birthYear}}<br>
+<b>Current Picture</b> {{picture}}<br>
 
-<b>Work/School Details</b>
-{{this.workSchoolName}}
-{{this.streetAddress}}
-{{this.streetAddressPt2}}
-{{this.city}}, {{this.state}} {{this.zip}}
+<b>Work/School Details</b><br>
+{{this.workSchoolName}}<br>
+{{this.streetAddress}}<br>
+{{this.streetAddressPt2}}<br>
+{{this.city}}, {{this.state}} {{this.zip}}<br>
+<br>
 {{/each}}
-
-
-<h5><b>Your Rally Points</b></h5>
-<b>Immidieately outsid of house</b>(in case of fire, etc.):
-{{rallyPoints.immediate}}
-
-<b>Out of neighborhood rally point</b>(in case of major disaster):
-{{rallyPoints.rallyStreetAddress}}
-{{rallyPoints.rallyStreetAddressPt2}}
-{{rallyPoints.rallyCity}}, {{rallyPoints.rallyState}} {{rallyPoints.rallyZip}}
-
-
-<h5><b>Out of state emergency contact</b></h5>(aka ICE)
-{{ice.firstName}} {{icd.lastName}}
-{{ice.streetAddress}}
-{{ice.streetAddressPt2}}
-{{ice.city}}, {{ice.state}} {{ice.zip}}

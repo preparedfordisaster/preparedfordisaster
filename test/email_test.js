@@ -42,9 +42,8 @@ describe('email plan test', () => {
       'emergencykit.garbageBagsAndPlasticTies': true, 'emergencykit.wrenchOrPliers': true,
       'emergencykit.canOpener': true, 'emergencykit.localMaps': true }
     );
-    newPlan.save((err, data) => {
+    newPlan.save((err) => {
       if (err) throw err;
-      this.plan = data;
       done();
     });
   });
@@ -83,7 +82,6 @@ it('should send an email with the user plan', (done) => {
   .set('token', this.token)
   .end((err, res) => {
     expect(err).to.eql(null);
-    console.log(res);
     expect(res.body.msg).to.eql('Email Sent!');
     expect(res.status).to.eql(200);
     done();

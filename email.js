@@ -26,6 +26,12 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
           if (err) return errorHandler(err);
           console.log('Message sent: ' + info.response);
         });
+
+        value.reminderDate.setDate(value.reminderDate.getDate() + value.reminderFrequency);
+        Plan.update({ _id: value._id }, value, (err) => {
+          if (err) return errorHandler(err);
+          console.log('updated successfully');
+        });
       });
       mongoose.disconnect(done);
     });

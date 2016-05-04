@@ -8,12 +8,15 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err, done) => {
   if (err) return errorHandler(err);
   var now = new Date();
+  debugger;
   Plan.find( { 'reminderDate': { $lt: now } }, (err, remindArray) => {
+    debugger;
     if (err) return errorHandler(err);
     var body;
     var template;
-      readFile(__dirname + '/view/email_template.html').then((buffer) => {
+      readFile(__dirname + '/view/mail_template.html').then((buffer) => {
         template = handlebars.compile(buffer.toString());
+        debugger;
         remindArray.forEach((value) => {
         body = template(value);
         var mailConfig = {
@@ -27,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
           console.log('Message sent: ' + info.response);
         });
       });
+      mongoose.disconnect(done);
     });
   });
-    mongoose.disconnect(done);
   });

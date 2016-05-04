@@ -8,9 +8,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
   var now = new Date();
   console.log('now ' + now);
   Plan.find( { 'reminderDate': { $lt: now } }, (err, remindArray) => {
+    if (err) return errorHandler(err);
+    console.log('got the query');
+    console.log('remindArray :' + remindArray);
+    console.log('err' + err);
     remindArray.forEach((value) => {
-      if (err) return errorHandler(err);
-      console.log(value.email);
+      console.log('value ' + JSON.stringify(value));
+      console.log('value.email ' + value.email);
       const mailConfig = {
         from: 'info@preparedfordisaster.org',
         to: value.email,

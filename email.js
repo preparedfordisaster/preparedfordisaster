@@ -19,10 +19,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
     var body;
     var template;
     if (err) return errorHandler(err);
-    remindArray.forEach((value) => {
       readFile(__dirname + '/../view/email_template.html').then((buffer) => {
-        if (err) return errorHandler(err);
         template = handlebars.compile(buffer.toString());
+        remindArray.forEach((value) => {
         body = template(value);
         const mailConfig = {
           from: 'info@preparedfordisaster.org',
@@ -36,6 +35,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
         });
       });
     });
+  });
     mongoose.disconnect(done);
   });
-});

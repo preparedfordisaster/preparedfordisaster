@@ -32,5 +32,5 @@ emailRouter.post('/email', jwtAuth, (req, res) => {
       });
     });
   });
-  res.status(200).json({ msg: 'Successfully sent!' });
+  res.status(200).json({ msg: 'Email Sent!' });
 });

@@ -4,8 +4,6 @@ const handlebars = require('handlebars');
 const readFile = require('fs-readfile-promise');
 const errorHandler = require(__dirname + '/lib/errorHandler.js');
 const mongoose = require('mongoose');
-const EventEmitter = require('events');
-var newEmitter = new EventEmitter();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err, done) => {
   if (err) return errorHandler(err);
@@ -28,11 +26,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
           if (err) return console.log(err);
           console.log('Message sent: ' + info.response);
         });
-        debugger;
         value.reminderDate.setDate(value.reminderDate.getDate() + value.reminderFrequency);
-        debugger;
         Plan.update({ _id: value._id }, value, (err) => {
-          debugger;
           if (err) return console.log(err);
           console.log('updated successfully');
         });
@@ -51,7 +46,3 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
     });
   });
   });
-
-newEmitter.on('cleanup', (done) => {
-  mongoose.disconnect(done);
-});

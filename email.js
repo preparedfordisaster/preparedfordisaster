@@ -1,10 +1,3 @@
-// const email = require(__dirname + '/chron_email.js');
-// const Plan = require(__dirname + '/../models/plan.js');
-// const handlebars = require('handlebars');
-// const readFile = require('fs-readfile-promise');
-// const errorHandler = require(__dirname + '/errorHandler.js');
-// const mongoose = require('mongoose');
-
 const email = require(__dirname + '/lib/chron_email.js');
 const Plan = require(__dirname + '/models/plan.js');
 const handlebars = require('handlebars');
@@ -16,14 +9,14 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err,
   if (err) return errorHandler(err);
   var now = new Date();
   Plan.find( { 'reminderDate': { $lt: now } }, (err, remindArray) => {
+    if (err) return errorHandler(err);
     var body;
     var template;
-    if (err) return errorHandler(err);
       readFile(__dirname + '/../view/email_template.html').then((buffer) => {
         template = handlebars.compile(buffer.toString());
         remindArray.forEach((value) => {
         body = template(value);
-        const mailConfig = {
+        var mailConfig = {
           from: 'info@preparedfordisaster.org',
           to: value.email,
           subject: 'Your Emergency Disaster Plan as of: ' + now,

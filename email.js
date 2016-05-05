@@ -5,12 +5,13 @@ const readFile = require('fs-readfile-promise');
 const errorHandler = require(__dirname + '/lib/errorHandler.js');
 const mongoose = require('mongoose');
 
-function check() {
+function check(cb) {
   mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/plan_db', (err, done) => {
     if (err) return errorHandler(err);
     var now = new Date();
     Plan.find( { 'reminderDate': { $lt: now } }, (err, remindArray) => {
       if (err) return console.log(err);
+      debugger;
       var body;
       var template;
       readFile(__dirname + '/view/mail_template.html').then((buffer) => {
@@ -25,7 +26,7 @@ function check() {
           };
           email.sendMail(mailConfig, (err, info) => {
             if (err) return console.log(err);
-            console.log('Message sent: ' + info.response);
+            process.stdout.write('Message sent: ' + info.response + '\n');
           });
           value.reminderDate.setDate(value.reminderDate.getDate() + value.reminderFrequency);
           Plan.update({ _id: value._id }, value, (err) => {
@@ -41,6 +42,9 @@ function check() {
             if ( checkArray.length === 0 || timerCounter === 30) {
               mongoose.disconnect(done);
               clearInterval(timer);
+              var callback = cb || function() {};
+              // for testing purposes only
+              callback();
             }
           });
         }, 1000);
@@ -48,4 +52,4 @@ function check() {
     });
   });
 }
-module.exports = exports = check();
+module.exports = exports = check;

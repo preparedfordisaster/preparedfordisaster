@@ -12,20 +12,6 @@ describe('Testing reminder email:', () => {
     mongoose.connect(process.env.MONGODB_URI);
     done();
   });
-
-  // before((done) => {
-  //   var user = new User({ username: 'Rachel', password: 246 });
-  //   user.save((err, data) => {
-  //     if (err) throw err;
-  //     this.user = data;
-  //     this.user.generateToken((err, token) => {
-  //       if (err) throw err;
-  //       this.token = token;
-  //       done();
-  //     });
-  //   });
-  // });
-
   before((done) => {
     var counter = 0;
     var plan1 = new Plan(JSON.parse(fs.readFileSync(__dirname + '/test_post1.json').toString()));
@@ -33,21 +19,21 @@ describe('Testing reminder email:', () => {
     var plan3 = new Plan(JSON.parse(fs.readFileSync(__dirname + '/test_post3.json').toString()));
     plan1.save((err) => {
       if (err) throw err;
-      counter++
+      counter++;
       if (counter === 3) {
         mongoose.disconnect(done);
       }
     });
     plan2.save((err) => {
       if (err) throw err;
-      counter++
+      counter++;
       if (counter === 3) {
         mongoose.disconnect(done);
       }
     });
-    plan3.save((err, data) => {
+    plan3.save((err) => {
       if (err) throw err;
-      counter++
+      counter++;
       if (counter === 3) {
           mongoose.disconnect(done);
         }

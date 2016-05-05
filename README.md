@@ -57,7 +57,7 @@ This token will be used as the authorization for your future REST requests.
 If you already have an account and want to use it for making REST requests, go to the command line and make a POST request using your predetermined user name and password.
 
 ```
-http POST prepared-for-disaster.herokuapp.com/api/signin username=Username password=Password
+http -a Username:Password prepared-for-disaster.herokuapp.com/api/signin
 ```
 
 You will again receive the same token as for sign up. Copy and paste it into your future REST request.

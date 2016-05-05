@@ -18,7 +18,6 @@ emailRouter.post('/email', jwtAuth, (req, res) => {
       if (err) throw err;
       template = handlebars.compile(buffer.toString());
       body = template(planData);
-      console.log('body', body);
       var now = new Date();
       const mailConfig = {
         from: 'info@preparedfordisaster.org',

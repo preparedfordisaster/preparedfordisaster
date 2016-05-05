@@ -3,7 +3,6 @@ const fs = require('fs');
 const expect = chai.expect;
 const mongoose = require('mongoose');
 const email = require(__dirname + '/../email');
-// const User = require(__dirname + '/../models/user');
 const Plan = require(__dirname + '/../models/plan');
 process.env.MONGODB_URI = 'mongodb://localhost/email_reminder_test_db';
 
@@ -48,7 +47,6 @@ describe('Testing reminder email:', () => {
   });
   it('should send emails', (done) => {
     email(done);
-    // expect(process.stdout).to.contain('250');
   });
   it('should update the past reminderDates to future times', (done) => {
     var now = new Date();

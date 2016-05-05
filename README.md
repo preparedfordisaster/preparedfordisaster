@@ -5,8 +5,6 @@
 
 https://prepared-for-disaster.herokuapp.com/
 
-[![Build Status](https://travis-ci.org/preparedfordisaster/preparedfordisaster.svg?branch=master)](https://travis-ci.org/preparedfordisaster/preparedfordisaster)
-
 # Documents
 ### About our application
 Prepared for disaster is the backend portion of a full stack JavaScript application. The goal of the application is for users to have a thoughtful disaster plan in place and with regular email reminders to review or update their plan.
@@ -64,16 +62,16 @@ You will again receive the same token as for sign up. Copy and paste it into you
 
 ## How to POST:
 
-For your convenience we've provided an example JSON file of what needs to be posted. This can be manipulated to contain more personalized information as long as it complies with the JSON format. Below is the link to our github repo containing the test_post file.
+For your convenience we've provided an example JSON file of what needs to be posted. This can be manipulated to contain more personalized information as long as it complies with the JSON format. Below is the link to our github repo containing the test_post1 file.
 
 https://github.com/preparedfordisaster/preparedfordisaster/blob/master/test/test_post1.json
 
-In the command line make a POST request similar to the one below, which uses the test_post JSON file and cat it into the request. This is done because the information needing to be posted is complex and would be difficult to type out in the command line. The test_post does not go into the command line. It needs to be copied into a JSON file within a directory on your local machine. Please note that the token in the example below should be substituted with the token you received while signing up or signing in.
+In the command line make a POST request similar to the one below, which uses the test_post1 JSON file and cat it into the request. This is done because the information needing to be posted is complex and would be difficult to type out in the command line. The test_post1 does not go into the command line. It needs to be copied into a JSON file within a directory on your local machine. Please note that the token in the example below should be substituted with the token you received while signing up or signing in.
 
 For your POST request enter your token similar to below:
 
 ```
-cat test_post.json | http POST prepared-for-disaster.herokuapp.com/api/plan token:eyJ08976546khjgfdtygukjlbvhg4M2Y4ZDI3NTM4ZjY3Nzgxyiuyfjhmvbdfghf98765HFGJKkjhgmvgfhjGJjkhmvHJKzZTgxODJkMTVlMWQxIiwiaWF0IjoxNDYyNDY2NTI0fQ.oiuyo0klhkz1yYYkKOwSzW45BAsKK4l8FYZyma
+cat test/test_post1.json | http POST prepared-for-disaster.herokuapp.com/api/plan token:eyJ08976546khjgfdtygukjlbvhg4M2Y4ZDI3NTM4ZjY3Nzgxyiuyfjhmvbdfghf98765HFGJKkjhgmvgfhjGJjkhmvHJKzZTgxODJkMTVlMWQxIiwiaWF0IjoxNDYyNDY2NTI0fQ.oiuyo0klhkz1yYYkKOwSzW45BAsKK4l8FYZyma
 ```
 
 ## How to PUT:

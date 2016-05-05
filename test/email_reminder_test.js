@@ -9,7 +9,7 @@ process.env.MONGODB_URI = 'mongodb://localhost/email_reminder_test_db';
 
 describe('Testing reminder email:', () => {
   before((done) => {
-    mongoose.createConnection(process.env.MONGODB_URI);
+    mongoose.connect(process.env.MONGODB_URI);
     done();
   });
 
@@ -34,17 +34,23 @@ describe('Testing reminder email:', () => {
     plan1.save((err) => {
       if (err) throw err;
       counter++
-      if (counter === 3) done();
+      if (counter === 3) {
+        mongoose.disconnect(done);
+      }
     });
     plan2.save((err) => {
       if (err) throw err;
       counter++
-      if (counter === 3) done();
+      if (counter === 3) {
+        mongoose.disconnect(done);
+      }
     });
-    plan3.save((err) => {
+    plan3.save((err, data) => {
       if (err) throw err;
       counter++
-      if (counter === 3) done();
+      if (counter === 3) {
+          mongoose.disconnect(done);
+        }
     });
 
   });
@@ -60,6 +66,7 @@ describe('Testing reminder email:', () => {
   });
   it('should update the past reminderDates to future times', (done) => {
     var now = new Date();
+    mongoose.connect(process.env.MONGODB_URI);
     Plan.find( { 'reminderDate': { $lt: now } }, (err, checkArray) => {
       if (err) throw err;
       expect(checkArray.length).to.eql(0);

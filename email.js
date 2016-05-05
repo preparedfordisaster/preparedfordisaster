@@ -11,7 +11,6 @@ function check(cb) {
     var now = new Date();
     Plan.find( { 'reminderDate': { $lt: now } }, (err, remindArray) => {
       if (err) return console.log(err);
-      debugger;
       var body;
       var template;
       readFile(__dirname + '/view/mail_template.html').then((buffer) => {

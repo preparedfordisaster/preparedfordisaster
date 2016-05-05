@@ -211,4 +211,26 @@ You will receive back an array of your unique plans. Example:
     }
 ]
 ```
-## 
+## How to email your plan via a route
+
+While there are automatic emails determined by the reminder date and reminder frequency which you set within your POST request, if you want to send an email immediately you can post to the email route.
+```
+http POST prepared-for-disaster.herokuapp.com/api/email/ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGQiOiI2MGI3NjI2YTFjZDAyZTc3ZGI3NjhmOWZlYWI5NDk4NmMwZjhhNDBkN2Y5ZGUzYzcyMDViMzdmMDY0ZmZkYmM5IiwiaWF0IjoxNDYyNDY5MjA0fQ.9lVD34kjjq49zrpQcGqRhY4bQY04ty0
+```
+The email will be sent to the email address specified in the initial POST of your plan. After posting to this route you should receive an email with your plan information.
+
+## How to use Heroku Scheduler within our application
+
+Heroku Scheduler will automatically check all the plans within the database once a day to see if you have a scheduled reminder. If you do it will send you an email and then reset your reminder date to your next scheduled reminder. In order to personalize how often you are reminded, when you initially post your plan you must change the reminderFrequency and specify the interval of days between reminder emails. If you do not set the reminderFrequency there is a default setting of 91 days or about three months.
+
+In order to set your initial reminderDate to a day other than the day at which you POST your plan, you must specify the date within the initial POST request such as the example below:
+```
+"reminderDate": "Thu May 05 2016 09:28:36 GMT-0700 (PDT)"
+```
+If you do not specify the date the default will be the current date.
+
+### AUTHORS
+Greg Magdsick, Katherine Beame, Phillip Nguyen, Rachel Burke
+
+##### License
+preparedfordisaster is licensed under the MIT licensing rules

@@ -56,26 +56,6 @@ describe('email plan test', () => {
     });
   });
 
-  it('should create a plan to email', (done) => {
-    request('localhost:' + port)
-    .post('/api/plan')
-    .set('token', this.token)
-    .send({ firstName: 'test', lastName: 'test', email: 'phillip.d.nguyen23@gmail.com',
-    'emergencykit.water': true, 'emergencykit.food': true, 'emergencykit.noaaWeatherRadio': true,
-    'emergencykit.flashlight': true, 'emergencykit.extraBatteries': true,
-    'emergencykit.firstAidKit': true,
-    'emergencykit.whistle': true, 'emergencykit.dustMask': true,
-    'emergencykit.sheetingAndDuctTape': true,
-    'emergencykit.moistTowelettes': true,
-    'emergencykit.garbageBagsAndPlasticTies': true, 'emergencykit.wrenchOrPliers': true,
-    'emergencykit.canOpener': true, 'emergencykit.localMaps': true })
-    .end((err, res) => {
-      expect(err).to.eql(null);
-      expect(res.body.firstName).to.eql('test');
-      done();
-    });
-  });
-
 it('should send an email with the user plan', (done) => {
   request('localhost:' + port)
   .post('/api/email')
@@ -87,5 +67,4 @@ it('should send an email with the user plan', (done) => {
     done();
   });
 });
-
 });

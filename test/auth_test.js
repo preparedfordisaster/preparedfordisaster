@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const port = process.env.PORT = 1234;
 
 const server = require(__dirname + '/../lib/_server');
-var User = require(__dirname + '/../models/user.js');
+
 process.env.APP_SECRET = 'secret';
 
 

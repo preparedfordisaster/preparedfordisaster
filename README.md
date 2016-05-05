@@ -8,22 +8,7 @@ https://prepared-for-disaster.herokuapp.com/
 [![Build Status](https://travis-ci.org/preparedfordisaster/preparedfordisaster.svg?branch=master)](https://travis-ci.org/preparedfordisaster/preparedfordisaster)
 # Documents
 ### About our application
-Prepared for disaster is the backend portion of a full stack JavaScript application whos goal is for users to have a thoughtful plan in place should they need it with regular email reminders.
-
-## Resources
-
-Auth:
-https://scotch.io/tutorials/easy-node-authentication-facebook
-http://code.tutsplus.com/articles/social-authentication-for-nodejs-apps-with-passport--cms-21618
-
-Timed Emails:
-http://patrickdmccarthy.tumblr.com/post/104974896772/how-to-send-timed-emails-with-templates-from
-
-Mailgun API:
-http://stackoverflow.com/questions/26956251/sending-emails-using-mailgun-with-nodemailer-package
-
-Heroku:
-
+Prepared for disaster is the backend portion of a full stack JavaScript application who's goal is for users to have a thoughtful plan in place should they need it with regular email reminders.
 
 
 ## Dependencies
@@ -72,11 +57,11 @@ You will again receive the same token as for sign up. Copy and paste it into you
 
 ## How to POST
 
-For your convenience we've provided an example JSON file of what needs to be posted. This can be manipulated to contain more personalized information so long as it complies with the JSON format. Below is the link to our github repo containing the test_post file.
+For your convenience we've provided an example JSON file of what needs to be posted. This can be manipulated to contain more personalized information as long as it complies with the JSON format. Below is the link to our github repo containing the test_post file.
 
 https://github.com/preparedfordisaster/preparedfordisaster/blob/master/test_post.json
 
-In the command line make a POST request similar to the one below, which uses the test_post JSON file and concats it into the request. This is done because the information needing to be posted is complex and would be difficult to type out in the command line. The test_post does not go into the command line. It needs to be copied into a JSON file within a directory on your local machine. Please note that the token in the example below should be substituted with the token you received while signing up or signing in.
+In the command line make a POST request similar to the one below, which uses the test_post JSON file and cat it into the request. This is done because the information needing to be posted is complex and would be difficult to type out in the command line. The test_post does not go into the command line. It needs to be copied into a JSON file within a directory on your local machine. Please note that the token in the example below should be substituted with the token you received while signing up or signing in.
 
 For your POST request enter your token similar to below:
 ```
@@ -100,7 +85,7 @@ A DELETE request is nearly identical to a PUT request in that it needs the uniqu
 ```
 http DELETE prepared-for-disaster.herokuapp.com/api/plan/572b87956efe0a1100607bef token:eyJ08976546khjgfdtygukjlbvhg4M2Y4ZDI3NTM4ZjY3Nzgxyiuyfjhmvbdfghf98765HFGJKkjhgmvgfhjGJjkhmvHJKzZTgxODJkMTVlMWQxIiwiaWF0IjoxNDYyNDY2NTI0fQ.oiuyo0klhkz1yYYkKOwSzW45BAsKK4l8FYZyma
 ```
-There is no need to concat the JSON file because we are simply deleting it.
+There is no need to cat the JSON file because we are simply deleting it.
 
 ## How to GET
 
@@ -209,7 +194,7 @@ You will receive back an array of your unique plans. Example:
 ```
 ## How to email your plan via a route
 
-While there are automatic emails determined by the reminder date and reminder frequency which you set within your POST request, if you want to send an email immediately you can post to the email route.
+While there are automatic emails determined by the reminder date and reminder frequency which you set within your POST request, if you want to send an email immediately you can POST to the email route.
 ```
 http POST prepared-for-disaster.herokuapp.com/api/email/ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGQiOiI2MGI3NjI2YTFjZDAyZTc3ZGI3NjhmOWZlYWI5NDk4NmMwZjhhNDBkN2Y5ZGUzYzcyMDViMzdmMDY0ZmZkYmM5IiwiaWF0IjoxNDYyNDY5MjA0fQ.9lVD34kjjq49zrpQcGqRhY4bQY04ty0
 ```
@@ -217,7 +202,7 @@ The email will be sent to the email address specified in the initial POST of you
 
 ## How to use Heroku Scheduler within our application
 
-Heroku Scheduler will automatically check all the plans within the database once a day to see if you have a scheduled reminder. If you do it will send you an email and then reset your reminder date to your next scheduled reminder. In order to personalize how often you are reminded, when you initially post your plan you must change the reminderFrequency and specify the interval of days between reminder emails. If you do not set the reminderFrequency there is a default setting of 91 days or about three months.
+Heroku Scheduler will automatically check all the plans within the database once a day to see if you have a scheduled reminder. If you do it will send you an email and then reset your reminder date to your next scheduled reminder. In order to personalize how often you are reminded, when you initially POST your plan you must change the reminderFrequency and specify the interval of days between reminder emails. If you do not set the reminderFrequency there is a default setting of 91 days or about three months.
 
 In order to set your initial reminderDate to a day other than the day at which you POST your plan, you must specify the date within the initial POST request such as the example below:
 ```

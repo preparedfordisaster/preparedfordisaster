@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "401d7 Project week 1 project",
   "main": "index.js",
+  "engines": {
+    "node": "6.11.1"
+  },
   "directories": {
     "test": "test"
   },
